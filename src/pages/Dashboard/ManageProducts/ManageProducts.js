@@ -16,7 +16,7 @@ const ManageProducts = () => {
     const [products,setProducts]=useState([]);
    console.log(user.email);
     useEffect(()=>{
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://gentle-temple-03216.herokuapp.com/products`)
         .then(res =>res.json())
         .then(result =>{
             setProducts(result);
@@ -28,7 +28,7 @@ const ManageProducts = () => {
 
         console.log(id);
         if(proceed){
-            fetch(`http://localhost:5000/products/${id}`,{
+            fetch(`https://gentle-temple-03216.herokuapp.com/products/${id}`,{
             method:"DELETE",
             headers:{
                 "content-type":"application/json"
@@ -45,7 +45,7 @@ const ManageProducts = () => {
     }
     return (
         <div>
-        <h2>My Orders</h2>
+        <h2 className="mb-4">Manage Products</h2>
         <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {products.map((order, index) => (
@@ -59,7 +59,7 @@ const ManageProducts = () => {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      {order?.name}
+                      {order?.pname}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {

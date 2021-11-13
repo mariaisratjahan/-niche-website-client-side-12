@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 const Products = () => {
     const [products,setProducts]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://gentle-temple-03216.herokuapp.com/products')
         .then(res => res.json())
         .then(data=>{
             setProducts(data);
@@ -37,7 +37,7 @@ const Products = () => {
                 <CardActionArea>
                     <CardMedia
                     component="img"
-                    height="140"
+                    // height="140"
                     image={product.img}
                     alt="green iguana"
                     />

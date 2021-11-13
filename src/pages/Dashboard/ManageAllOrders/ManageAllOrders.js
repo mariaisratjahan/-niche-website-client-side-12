@@ -14,12 +14,35 @@ const ManageAllOrders = () => {
     const onSubmit = data => console.log(data);
     const [allOrders,setAllOrders]=useState([]);
      useEffect(()=>{
-         fetch('http://localhost:5000/purchaseAll')
+         fetch('https://gentle-temple-03216.herokuapp.com/purchaseAll')
          .then(res=> res.json())
          .then(result =>{
             setAllOrders(result);
          })
      },[])
+
+     const handleDelete=(id)=>{
+      const proceed=window.confirm('Are You Sure?');
+
+       if(proceed){
+        fetch(`https://gentle-temple-03216.herokuapp.com/purchase/${id}`,{
+          method:"DELETE",
+          headers:{
+              "content-type":"application/json"
+           }
+         })
+         .then(res => res.json())
+         .then(result =>{
+          if(result.deletedCount>0){
+            const remaining=allOrders.filter(p=> p._id !== id)
+            setAllOrders(remaining);
+         }
+           console.log(result);
+         })
+       }
+       
+     }
+    
     return (
         <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -46,7 +69,7 @@ const ManageAllOrders = () => {
                 <TableCell align="right">{row.name}</TableCell>
                 <TableCell align="right">{row.price}</TableCell>
                 <TableCell align="right">                 
-                <Button variant="">Delete</Button>
+                <Button variant="" onClick={()=>handleDelete(row._id)}>Delete</Button>
                 <Button variant="contained">{row.status}</Button>
                   
                 </TableCell>

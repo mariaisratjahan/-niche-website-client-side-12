@@ -1,9 +1,13 @@
 import React from 'react';
+import useAuth from '../../../hooks/useAuth';
 
 const DashboardHome = () => {
+    const {user}=useAuth()
     return (
-        <div>
-            <h2>this is home</h2>
+        <div> 
+             <p>Hello {user.displayName}...</p>
+            <h2>Welcome To Dashboard</h2>
+            
         </div>
     );
 };

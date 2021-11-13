@@ -17,7 +17,7 @@ const Purchase = () => {
     const {pid}= useParams();
     const [singleProduct,setSingleProduct]=useState({});
     const {user}=useAuth();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const productName=singleProduct.pname;
         const productPrice=singleProduct.price;
@@ -32,7 +32,7 @@ const Purchase = () => {
         data.userName=userName;
         data.img=productImg;
         
-        fetch('http://localhost:5000/purchase',{
+        fetch('https://gentle-temple-03216.herokuapp.com/purchase',{
             method:"POST",
             headers:{
                 "content-type":"application/json"
@@ -41,16 +41,20 @@ const Purchase = () => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+           if(result.acknowledged){
+               alert('purchase successfully')
+               reset()
+           }
         })
     };
     
     // console.log(pid);
     useEffect(()=>{
-        fetch(`http://localhost:5000/singleProduct/${pid}`)
+        fetch(`https://gentle-temple-03216.herokuapp.com/singleProduct/${pid}`)
         .then(res => res.json())
         .then(result =>{
             setSingleProduct(result);
+            console.log(result);
         })
        
     },[])
@@ -77,13 +81,14 @@ const Purchase = () => {
             <Card sx={{ width:"100%" }}>
                 <CardMedia
                     component="img"
-                    height="140"
+                    // 
+                    width="100%"
                     image={singleProduct.img}
                     alt="green iguana"
                 />
-                <CardContent>
+                <CardContent sx={{p:4}}>
                     <Typography gutterBottom variant="h5" component="div">
-                     {singleProduct.Pname}
+                     {singleProduct.pname}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                     {singleProduct.description}

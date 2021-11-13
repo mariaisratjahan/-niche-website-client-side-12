@@ -1,0 +1,13 @@
+.admin-form{
+    width:80%;
+}
+.admin-form input{
+    width: 100%;
+    margin:10px;
+    border-radius: 10px;
+    padding:5px 0;
+}
+.admin-btn{
+    background-color: rgb(47, 96, 233);
+    color:white;
+}

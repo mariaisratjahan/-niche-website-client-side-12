@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-
+import './MakeAdmin.css';
 const MakeAdmin = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/users/admin',{
+        fetch('https://gentle-temple-03216.herokuapp.com/users/admin',{
             method:"PUT",
             headers:{
                 "content-type":"application/json"
@@ -22,9 +22,9 @@ const MakeAdmin = () => {
     };
     return (
         <div>
-            <form  onSubmit={handleSubmit(onSubmit)}>
+            <form className="admin-form"  onSubmit={handleSubmit(onSubmit)}>
                 <input  placeholder="Enter an email" {...register("email")} />                
-                <input type="submit" value="Make Admin" />
+                <input className="admin-btn" type="submit" value="Make Admin" />
             </form> 
         </div>
     );

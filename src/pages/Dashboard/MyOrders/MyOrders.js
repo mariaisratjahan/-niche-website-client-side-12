@@ -16,7 +16,7 @@ const MyOrders = () => {
     const [myOrders,setMyOrders]=useState([]);
    console.log(user.email);
     useEffect(()=>{
-        fetch(`http://localhost:5000/purchase?email=${user?.email}`)
+        fetch(`https://gentle-temple-03216.herokuapp.com/purchase?email=${user?.email}`)
         .then(res =>res.json())
         .then(result =>{
             setMyOrders(result);
@@ -28,7 +28,7 @@ const MyOrders = () => {
 
         console.log(id);
         if(proceed){
-            fetch(`http://localhost:5000/purchase/${id}`,{
+            fetch(`https://gentle-temple-03216.herokuapp.com/purchase/${id}`,{
             method:"DELETE",
             headers:{
                 "content-type":"application/json"
