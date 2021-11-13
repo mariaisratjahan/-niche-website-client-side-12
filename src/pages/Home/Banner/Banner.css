@@ -1,0 +1,25 @@
+.banner-container{
+    background-color: rgb(198, 202, 201);
+    min-height: 100vh;
+    align-items: center;
+}
+.banner-grid{
+    align-items: center;
+}
+.text1{
+    color:rgb(60, 63, 62);
+    font-weight: 600;
+
+}
+.text2{
+    color: rgb(6, 138, 161);
+    font-weight: 300;
+   
+}
+.banner-btn{
+    padding:8px 25px;
+    border: 1px solid rgb(53, 97, 156);
+    color:rgb(56, 53, 53);
+    margin-top: 20px;
+    box-shadow: 1px 1px 1px rgb(101, 101, 138);
+}

@@ -1,0 +1,22 @@
+.form-style{
+    width: 70%;
+}
+.form-style input {
+  width:100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  border:1px 1px rgb(56, 56, 61);
+  padding:10px 25px;
+}
+.form-style textarea{
+    width:100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    border:1px 1px blue;
+    padding:10px 25px;
+}
+.form-btn{
+    background-color: rgb(52, 52, 59);
+    color:white;
+    
+}

@@ -1,0 +1,20 @@
+.grid{
+    align-items: center;
+    padding: 50px;
+    justify-content: center;
+}
+form{
+  width:100%;
+  text-align: center;
+  margin: auto;
+}
+.from-style input{
+    display:block;
+    width:80%;
+    padding:10px 40px;
+    margin:20px 0;
+    border:1px solid blue;
+    box-shadow: 1px 1px 1px blue;
+    font-size: 20px;
+    border-radius: 5px;
+}
